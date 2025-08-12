@@ -15,6 +15,38 @@ namespace AccountRegistration
         public Form1()
         {
             InitializeComponent();
+            // Fill combobox with sample college courses
+            cboProgram.Items.AddRange(new string[]
+            {
+                "BS Computer Science",
+                "BS Information Technology",
+                "BS Information Systems",
+                "BS Software Engineering",
+                "BS Data Science",
+                "BS Civil Engineering",
+                "BS Electrical Engineering",
+                "BS Mechanical Engineering",
+                "BS Architecture",
+                "BS Accountancy",
+                "BS Business Administration",
+                "BS Marketing Management",
+                "BS Psychology",
+                "BS Nursing",
+                "BS Medical Technology",
+                "BS Pharmacy",
+                "BS Biology",
+                "BS Mathematics",
+                "BA Communication",
+                "BA Political Science",
+                "BA Economics",
+                "BA English Language Studies",
+                "Bachelor of Elementary Education",
+                "Bachelor of Secondary Education"
+            });
+
+            // Optional: Select first item by default
+            if (cboProgram.Items.Count > 0)
+                cboProgram.SelectedIndex = 0;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
