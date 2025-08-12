@@ -1,6 +1,6 @@
 ﻿namespace AccountRegistration
 {
-    partial class Form1
+    partial class FrmRegistration
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmRegistration));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
@@ -227,7 +227,7 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "FORM REGISTRATION";
             // 
-            // Form1
+            // FrmRegistration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -254,9 +254,10 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.Name = "Form1";
+            this.Name = "FrmRegistration";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRegistration";
+            this.Load += new System.EventHandler(this.FrmRegistration_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

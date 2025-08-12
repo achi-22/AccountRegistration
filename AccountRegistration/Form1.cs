@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace AccountRegistration
 {
-    public partial class Form1 : Form
+    public partial class FrmRegistration : Form
     {
-        public Form1()
+        public FrmRegistration()
         {
             InitializeComponent();
-            // Fill combobox with sample college courses
             cboProgram.Items.AddRange(new string[]
             {
                 "BS Computer Science",
@@ -44,7 +43,6 @@ namespace AccountRegistration
                 "Bachelor of Secondary Education"
             });
 
-            // Optional: Select first item by default
             if (cboProgram.Items.Count > 0)
                 cboProgram.SelectedIndex = 0;
         }
@@ -54,7 +52,6 @@ namespace AccountRegistration
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Assign textbox/combobox values to static variables
             StudentInfoClass.Program = cboProgram.Text;
             StudentInfoClass.FirstName = txtFirstName.Text;
             StudentInfoClass.LastName = txtLastName.Text;
@@ -65,12 +62,16 @@ namespace AccountRegistration
             StudentInfoClass.ContactNo = long.TryParse(txtContactNo.Text, out long contact) ? contact : 0;
             StudentInfoClass.StudentNo = long.TryParse(txtStudentNo.Text, out long studNo) ? studNo : 0;
 
-            // Open FrmConfirm as dialog
             FrmConfirm frm = new FrmConfirm();
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Registration confirmed!", "Success");
             }
+        }
+
+        private void FrmRegistration_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -8,11 +8,9 @@ namespace AccountRegistration
 {
     public class StudentInfoClass
     {
-        // Delegates
         public delegate long DelegateNumber(long number);
         public delegate string DelegateText(string txt);
 
-        // Static variables
         public static string FirstName = "";
         public static string LastName = "";
         public static string MiddleName = "";
@@ -22,7 +20,6 @@ namespace AccountRegistration
         public static long ContactNo = 0;
         public static long StudentNo = 0;
 
-        // Static return methods
         public static string GetFirstName(string txt) => FirstName;
         public static string GetLastName(string txt) => LastName;
         public static string GetMiddleName(string txt) => MiddleName;
