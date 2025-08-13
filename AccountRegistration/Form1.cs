@@ -66,6 +66,14 @@ namespace AccountRegistration
             if (frm.ShowDialog() == DialogResult.OK)
             {
                 MessageBox.Show("Registration confirmed!", "Success");
+
+                foreach (Control ctrl in this.Controls)
+                {
+                    if (ctrl is TextBox)
+                        ((TextBox)ctrl).Clear();
+                    else if (ctrl is ComboBox)
+                        ((ComboBox)ctrl).SelectedIndex = -1;
+                }
             }
         }
 
