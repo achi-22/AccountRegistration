@@ -64,41 +64,78 @@ namespace AccountRegistration
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtFirstName.Text) ||
+                    string.IsNullOrWhiteSpace(txtLastName.Text) ||
+                    string.IsNullOrWhiteSpace(txtStudentNo.Text) ||
+                    string.IsNullOrWhiteSpace(txtAge.Text) ||
+                    string.IsNullOrWhiteSpace(txtContactNo.Text))
+                {
+                    throw new ArgumentNullException("One or more required fields are empty.");
+                }
+
+                if (cbProgram.SelectedIndex < 0 || cbProgram.SelectedIndex >= cbProgram.Items.Count)
+                    throw new IndexOutOfRangeException("Program selection is invalid.");
+                if (cbGender.SelectedIndex < 0 || cbGender.SelectedIndex >= cbGender.Items.Count)
+                    throw new IndexOutOfRangeException("Gender selection is invalid.");
+                if (!long.TryParse(txtAge.Text.Trim(), out long age))
+                    throw new FormatException("Age must be a valid number.");
+                if (!long.TryParse(txtContactNo.Text.Trim(), out long contactNo))
+                    throw new FormatException("Contact number must be a valid number.");
+                if (!long.TryParse(txtStudentNo.Text.Trim(), out long studentNo))
+                    throw new FormatException("Student number must be a valid number.");
+
                 StudentInfoClass.Program = cbProgram.Text;
-                StudentInfoClass.FirstName = txtFirstName.Text;
-                StudentInfoClass.LastName = txtLastName.Text;
-                StudentInfoClass.MiddleName = txtMiddleName.Text;
-                StudentInfoClass.Age = long.Parse(txtAge.Text);
-                StudentInfoClass.ContactNo = long.Parse(txtContactNo.Text);
-                StudentInfoClass.StudentNo = long.Parse(txtStudentNo.Text);
-                StudentInfoClass.Birthday = datePickerBirtday.Text;
+                StudentInfoClass.FirstName = txtFirstName.Text.Trim();
+                StudentInfoClass.LastName = txtLastName.Text.Trim();
+                StudentInfoClass.MiddleName = txtMiddleName.Text.Trim();
+                StudentInfoClass.Age = age;
+                StudentInfoClass.ContactNo = contactNo;
+                StudentInfoClass.StudentNo = studentNo;
+                StudentInfoClass.Birthday = datePickerBirtday.Value.ToShortDateString();
                 StudentInfoClass.Gender = cbGender.Text;
+
+                FrmConfirm frm = new FrmConfirm();
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    MessageBox.Show("Registration confirmed!", "Success");
+
+                    foreach (Control ctrl in this.Controls)
+                    {
+                        if (ctrl is TextBox tb) tb.Clear();
+                        else if (ctrl is ComboBox cb) cb.SelectedIndex = -1;
+                        else if (ctrl is DateTimePicker dt) dt.Value = DateTime.Now;
+                    }
+                }
             }
-            catch (FormatException) {
-                MessageBox.Show("Please type numbers only for student number, age, and contact number.", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            catch (ArgumentNullException)
+            {
+                MessageBox.Show("Please fill in all required fields.", "Missing Input", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            catch (FormatException fe)
+            {
+                MessageBox.Show(fe.Message, "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             catch (OverflowException)
             {
-                MessageBox.Show("The number entered is too large. please enter valid number", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The number entered is too large. Please enter a valid number.", "Invalid Input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
-
-
-
-            FrmConfirm frm = new FrmConfirm();
-            if (frm.ShowDialog() == DialogResult.OK)
+            catch (IndexOutOfRangeException iore)
             {
-                MessageBox.Show("Registration confirmed!", "Success");
-
-                foreach (Control ctrl in this.Controls)
-                {
-                    if (ctrl is TextBox)
-                        ((TextBox)ctrl).Clear();
-                    else if (ctrl is ComboBox)
-                        ((ComboBox)ctrl).SelectedIndex = -1;
-                }
+                MessageBox.Show(iore.Message, "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            catch (ArgumentOutOfRangeException aoore)
+            {
+                MessageBox.Show(aoore.Message, "Selection Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
         }
