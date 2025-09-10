@@ -62,14 +62,23 @@ namespace AccountRegistration
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.Program = cbProgram.Text;
-            StudentInfoClass.FirstName = txtFirstName.Text;
-            StudentInfoClass.LastName = txtLastName.Text;
-            StudentInfoClass.MiddleName = txtMiddleName.Text;
-            StudentInfoClass.Age = long.TryParse(txtAge.Text, out long age) ? age : 0;
-            StudentInfoClass.ContactNo = long.TryParse(txtContactNo.Text, out long contact) ? contact : 0;
-            StudentInfoClass.StudentNo = long.TryParse(txtStudentNo.Text, out long studNo) ? studNo : 0;
-            StudentInfoClass.Birthday = datePickerBirtday.Text;
+            try
+            {
+                StudentInfoClass.Program = cbProgram.Text;
+                StudentInfoClass.FirstName = txtFirstName.Text;
+                StudentInfoClass.LastName = txtLastName.Text;
+                StudentInfoClass.MiddleName = txtMiddleName.Text;
+                StudentInfoClass.Age = long.TryParse(txtAge.Text, out long age) ? age : 0;
+                StudentInfoClass.ContactNo = long.TryParse(txtContactNo.Text, out long contact) ? contact : 0;
+                StudentInfoClass.StudentNo = long.TryParse(txtStudentNo.Text, out long studNo) ? studNo : 0;
+                StudentInfoClass.Birthday = datePickerBirtday.Text;
+                StudentInfoClass.Gender = cbGender.Text;
+            }
+            catch (FormatException) {
+                MessageBox.Show("Please type numbers only for student number, age, and contact number.", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            
 
             FrmConfirm frm = new FrmConfirm();
             if (frm.ShowDialog() == DialogResult.OK)

@@ -27,6 +27,8 @@ namespace AccountRegistration
             delContactNo = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetContactNo);
             delAge = new StudentInfoClass.DelegateNumber(StudentInfoClass.GetAge);
             delBirthday = new StudentInfoClass.DelegateText(StudentInfoClass.GetBirthday);
+            delGender = new StudentInfoClass.DelegateText(StudentInfoClass.GetGender);
+
 
             lblStudentNo.Text = delStudentNo(StudentInfoClass.StudentNo).ToString();
             lblGender.Text = delGender(StudentInfoClass.Gender);
