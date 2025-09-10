@@ -78,8 +78,6 @@ namespace AccountRegistration
         }
 
         private void FrmRegistration_Load(object sender, EventArgs e)
-        {
-
-        }
+        { }
     }
 }
