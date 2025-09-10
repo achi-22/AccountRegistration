@@ -68,9 +68,9 @@ namespace AccountRegistration
                 StudentInfoClass.FirstName = txtFirstName.Text;
                 StudentInfoClass.LastName = txtLastName.Text;
                 StudentInfoClass.MiddleName = txtMiddleName.Text;
-                StudentInfoClass.Age = long.TryParse(txtAge.Text, out long age) ? age : 0;
-                StudentInfoClass.ContactNo = long.TryParse(txtContactNo.Text, out long contact) ? contact : 0;
-                StudentInfoClass.StudentNo = long.TryParse(txtStudentNo.Text, out long studNo) ? studNo : 0;
+                StudentInfoClass.Age = long.Parse(txtAge.Text);
+                StudentInfoClass.ContactNo = long.Parse(txtContactNo.Text);
+                StudentInfoClass.StudentNo = long.Parse(txtStudentNo.Text);
                 StudentInfoClass.Birthday = datePickerBirtday.Text;
                 StudentInfoClass.Gender = cbGender.Text;
             }
@@ -83,16 +83,7 @@ namespace AccountRegistration
                 MessageBox.Show("The number entered is too large. please enter valid number", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An unexpected error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            finally
-            {
-                MessageBox.Show("Please input again in the fields mention", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
+            
 
 
 
