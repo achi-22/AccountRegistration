@@ -32,7 +32,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtStudentNo = new System.Windows.Forms.TextBox();
-            this.cboProgram = new System.Windows.Forms.ComboBox();
+            this.cbProgram = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.txtLastName = new System.Windows.Forms.TextBox();
             this.txtFirstName = new System.Windows.Forms.TextBox();
@@ -46,9 +46,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbGender = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.datePickerBirtday = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -79,13 +79,13 @@
             this.txtStudentNo.TabIndex = 2;
             this.txtStudentNo.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // cboProgram
+            // cbProgram
             // 
-            this.cboProgram.FormattingEnabled = true;
-            this.cboProgram.Location = new System.Drawing.Point(314, 129);
-            this.cboProgram.Name = "cboProgram";
-            this.cboProgram.Size = new System.Drawing.Size(222, 21);
-            this.cboProgram.TabIndex = 3;
+            this.cbProgram.FormattingEnabled = true;
+            this.cbProgram.Location = new System.Drawing.Point(314, 129);
+            this.cbProgram.Name = "cbProgram";
+            this.cbProgram.Size = new System.Drawing.Size(222, 21);
+            this.cbProgram.TabIndex = 3;
             // 
             // label3
             // 
@@ -206,13 +206,13 @@
             this.label9.TabIndex = 18;
             this.label9.Text = "FORM REGISTRATION";
             // 
-            // comboBox1
+            // cbGender
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(16, 248);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(274, 21);
-            this.comboBox1.TabIndex = 19;
+            this.cbGender.FormattingEnabled = true;
+            this.cbGender.Location = new System.Drawing.Point(16, 248);
+            this.cbGender.Name = "cbGender";
+            this.cbGender.Size = new System.Drawing.Size(274, 21);
+            this.cbGender.TabIndex = 19;
             // 
             // label10
             // 
@@ -224,12 +224,12 @@
             this.label10.TabIndex = 20;
             this.label10.Text = "Birthday :";
             // 
-            // dateTimePicker1
+            // datePickerBirtday
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(17, 301);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(273, 20);
-            this.dateTimePicker1.TabIndex = 21;
+            this.datePickerBirtday.Location = new System.Drawing.Point(17, 301);
+            this.datePickerBirtday.Name = "datePickerBirtday";
+            this.datePickerBirtday.Size = new System.Drawing.Size(273, 20);
+            this.datePickerBirtday.TabIndex = 21;
             // 
             // FrmRegistration
             // 
@@ -237,9 +237,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(552, 364);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.datePickerBirtday);
             this.Controls.Add(this.label10);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbGender);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label8);
@@ -253,7 +253,7 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtLastName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.cboProgram);
+            this.Controls.Add(this.cbProgram);
             this.Controls.Add(this.txtStudentNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -273,7 +273,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtStudentNo;
-        private System.Windows.Forms.ComboBox cboProgram;
+        private System.Windows.Forms.ComboBox cbProgram;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtLastName;
         private System.Windows.Forms.TextBox txtFirstName;
@@ -287,9 +287,9 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbGender;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker datePickerBirtday;
     }
 }
 

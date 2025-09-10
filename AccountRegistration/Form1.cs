@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,7 +16,7 @@ namespace AccountRegistration
         public FrmRegistration()
         {
             InitializeComponent();
-            cboProgram.Items.AddRange(new string[]
+            cbProgram.Items.AddRange(new string[]
             {
                 "BS Computer Science",
                 "BS Information Technology",
@@ -43,24 +44,32 @@ namespace AccountRegistration
                 "Bachelor of Secondary Education"
             });
 
-            if (cboProgram.Items.Count > 0)
-                cboProgram.SelectedIndex = 0;
-        }
+            if (cbProgram.Items.Count > 0)
+                cbProgram.SelectedIndex = 0;
 
+            cbGender.Items.AddRange(new string[]
+             {
+                "Male",
+                "Famale"
+             });
+
+            if (cbGender.Items.Count > 0)
+                cbGender.SelectedIndex = 0;
+        }
+        
         private void textBox1_TextChanged(object sender, EventArgs e)
         { }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            StudentInfoClass.Program = cboProgram.Text;
+            StudentInfoClass.Program = cbProgram.Text;
             StudentInfoClass.FirstName = txtFirstName.Text;
             StudentInfoClass.LastName = txtLastName.Text;
             StudentInfoClass.MiddleName = txtMiddleName.Text;
-            StudentInfoClass.Address = txtAddress.Text;
-
             StudentInfoClass.Age = long.TryParse(txtAge.Text, out long age) ? age : 0;
             StudentInfoClass.ContactNo = long.TryParse(txtContactNo.Text, out long contact) ? contact : 0;
             StudentInfoClass.StudentNo = long.TryParse(txtStudentNo.Text, out long studNo) ? studNo : 0;
+            StudentInfoClass.Birthday = datePickerBirtday.Text;
 
             FrmConfirm frm = new FrmConfirm();
             if (frm.ShowDialog() == DialogResult.OK)
@@ -75,6 +84,7 @@ namespace AccountRegistration
                         ((ComboBox)ctrl).SelectedIndex = -1;
                 }
             }
+
         }
 
         private void FrmRegistration_Load(object sender, EventArgs e)

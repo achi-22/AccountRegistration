@@ -36,7 +36,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.lblStudentNo = new System.Windows.Forms.Label();
-            this.lblName = new System.Windows.Forms.Label();
+            this.lblLastName = new System.Windows.Forms.Label();
             this.lblProgram = new System.Windows.Forms.Label();
             this.lblAge = new System.Windows.Forms.Label();
             this.lblBirthday = new System.Windows.Forms.Label();
@@ -45,6 +45,8 @@
             this.label11 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblContactNo = new System.Windows.Forms.Label();
+            this.lblFirstName = new System.Windows.Forms.Label();
+            this.lblMiddleName = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -96,7 +98,7 @@
             this.button1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Location = new System.Drawing.Point(130, 375);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(68, 41);
             this.button1.TabIndex = 8;
@@ -126,16 +128,16 @@
             this.lblStudentNo.TabIndex = 28;
             this.lblStudentNo.Text = "Student No :";
             // 
-            // lblName
+            // lblLastName
             // 
-            this.lblName.AutoSize = true;
-            this.lblName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblName.Location = new System.Drawing.Point(125, 139);
-            this.lblName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblName.Name = "lblName";
-            this.lblName.Size = new System.Drawing.Size(47, 13);
-            this.lblName.TabIndex = 29;
-            this.lblName.Text = "Name :";
+            this.lblLastName.AutoSize = true;
+            this.lblLastName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLastName.Location = new System.Drawing.Point(125, 139);
+            this.lblLastName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblLastName.Name = "lblLastName";
+            this.lblLastName.Size = new System.Drawing.Size(47, 13);
+            this.lblLastName.TabIndex = 29;
+            this.lblLastName.Text = "Name :";
             // 
             // lblProgram
             // 
@@ -225,12 +227,36 @@
             this.lblContactNo.TabIndex = 36;
             this.lblContactNo.Text = "Contact No :";
             // 
+            // lblFirstName
+            // 
+            this.lblFirstName.AutoSize = true;
+            this.lblFirstName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFirstName.Location = new System.Drawing.Point(215, 139);
+            this.lblFirstName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblFirstName.Name = "lblFirstName";
+            this.lblFirstName.Size = new System.Drawing.Size(11, 13);
+            this.lblFirstName.TabIndex = 37;
+            this.lblFirstName.Text = ".";
+            // 
+            // lblMiddleName
+            // 
+            this.lblMiddleName.AutoSize = true;
+            this.lblMiddleName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMiddleName.Location = new System.Drawing.Point(286, 139);
+            this.lblMiddleName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblMiddleName.Name = "lblMiddleName";
+            this.lblMiddleName.Size = new System.Drawing.Size(11, 13);
+            this.lblMiddleName.TabIndex = 38;
+            this.lblMiddleName.Text = ".";
+            // 
             // FrmConfirm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.ClientSize = new System.Drawing.Size(332, 449);
+            this.Controls.Add(this.lblMiddleName);
+            this.Controls.Add(this.lblFirstName);
             this.Controls.Add(this.lblContactNo);
             this.Controls.Add(this.lblGender);
             this.Controls.Add(this.label11);
@@ -238,7 +264,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.lblAge);
             this.Controls.Add(this.lblProgram);
-            this.Controls.Add(this.lblName);
+            this.Controls.Add(this.lblLastName);
             this.Controls.Add(this.lblStudentNo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button1);
@@ -249,7 +275,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmConfirm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmConfirm";
@@ -268,7 +294,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblStudentNo;
-        private System.Windows.Forms.Label lblName;
+        private System.Windows.Forms.Label lblLastName;
         private System.Windows.Forms.Label lblProgram;
         private System.Windows.Forms.Label lblAge;
         private System.Windows.Forms.Label lblBirthday;
@@ -277,5 +303,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblContactNo;
+        private System.Windows.Forms.Label lblFirstName;
+        private System.Windows.Forms.Label lblMiddleName;
     }
 }
