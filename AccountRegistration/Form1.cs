@@ -78,7 +78,22 @@ namespace AccountRegistration
                 MessageBox.Show("Please type numbers only for student number, age, and contact number.", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+            catch (OverflowException)
+            {
+                MessageBox.Show("The number entered is too large. please enter valid number", "invalid input", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An unexpected error occured: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            finally
+            {
+                MessageBox.Show("Please input again in the fields mention", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
 
 
             FrmConfirm frm = new FrmConfirm();
