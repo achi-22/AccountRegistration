@@ -21,6 +21,18 @@ namespace AccountRegistration
         public static string Birthday = "";
         public static string Gender = "";
 
+        // Properties (for database mapping)
+        public long StudentNoProp { get => StudentNo; set => StudentNo = value; }
+        public string FirstNameProp { get => FirstName; set => FirstName = value; }
+        public string LastNameProp { get => LastName; set => LastName = value; }
+        public string MiddleNameProp { get => MiddleName; set => MiddleName = value; }
+        public string ProgramProp { get => Program; set => Program = value; }
+        public long AgeProp { get => Age; set => Age = value; }
+        public long ContactNoProp { get => ContactNo; set => ContactNo = value; }
+        public string BirthdayProp { get => Birthday; set => Birthday = value; }
+        public string GenderProp { get => Gender; set => Gender = value; }
+
+        // Delegates
         public static string GetFirstName(string txt) => FirstName;
         public static string GetLastName(string txt) => LastName;
         public static string GetMiddleName(string txt) => MiddleName;

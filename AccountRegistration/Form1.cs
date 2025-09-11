@@ -97,13 +97,26 @@ namespace AccountRegistration
                 FrmConfirm frm = new FrmConfirm();
                 if (frm.ShowDialog() == DialogResult.OK)
                 {
-                    MessageBox.Show("Registration confirmed!", "Success");
-
-                    foreach (Control ctrl in this.Controls)
+                    try
                     {
-                        if (ctrl is TextBox tb) tb.Clear();
-                        else if (ctrl is ComboBox cb) cb.SelectedIndex = -1;
-                        else if (ctrl is DateTimePicker dt) dt.Value = DateTime.Now;
+                        DatabaseHelper.InsertStudent(new StudentInfoClass
+                        {
+                            StudentNoProp = StudentInfoClass.StudentNo,
+                            FirstNameProp = StudentInfoClass.FirstName,
+                            LastNameProp = StudentInfoClass.LastName,
+                            MiddleNameProp = StudentInfoClass.MiddleName,
+                            ProgramProp = StudentInfoClass.Program,
+                            AgeProp = StudentInfoClass.Age,
+                            ContactNoProp = StudentInfoClass.ContactNo,
+                            BirthdayProp = StudentInfoClass.Birthday,
+                            GenderProp = StudentInfoClass.Gender
+                        });
+
+                        MessageBox.Show("Student saved to database!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving student: {ex.Message}", "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -137,6 +150,7 @@ namespace AccountRegistration
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
 
         }
 
