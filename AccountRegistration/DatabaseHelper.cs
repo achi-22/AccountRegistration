@@ -21,31 +21,7 @@ namespace AccountRegistration
             return new SqlConnection(connectionString);
         }
 
-        // 2. Create table if not exists
-        public static void InitializeDatabase()
-        {
-            using (SqlConnection conn = GetConnection())
-            {
-                conn.Open();
-                string query = @"
-                IF NOT EXISTS (SELECT * FROM sysobjects WHERE name='Students' AND xtype='U')
-                CREATE TABLE Students (
-                    StudentNo BIGINT PRIMARY KEY,
-                    FirstName NVARCHAR(50) NOT NULL,
-                    LastName NVARCHAR(50) NOT NULL,
-                    MiddleName NVARCHAR(50),
-                    Program NVARCHAR(100) NOT NULL,
-                    Age INT NOT NULL,
-                    ContactNo BIGINT NOT NULL,
-                    Birthday NVARCHAR(50),
-                    Gender NVARCHAR(20)
-                )";
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.ExecuteNonQuery();
-            }
-        }
-
-        // 3. Insert new student (StudentNo should be unique)
+        // 2. Insert new student (StudentNo should be unique)
         public static void InsertStudent(StudentInfoClass student)
         {
             using (SqlConnection conn = GetConnection())
@@ -79,7 +55,7 @@ namespace AccountRegistration
             }
         }
 
-        // 4. Retrieve all students
+        // 3. Retrieve all students
         public static List<StudentInfoClass> GetAllStudents()
         {
             List<StudentInfoClass> students = new List<StudentInfoClass>();
@@ -94,14 +70,14 @@ namespace AccountRegistration
                     students.Add(new StudentInfoClass
                     {
                         StudentNoProp = Convert.ToInt64(reader["StudentNo"]),
-    FirstNameProp = reader["FirstName"].ToString(),
-    LastNameProp = reader["LastName"].ToString(),
-    MiddleNameProp = reader["MiddleName"].ToString(),
-    ProgramProp = reader["Program"].ToString(),
-    AgeProp = Convert.ToInt64(reader["Age"]),
-    ContactNoProp = Convert.ToInt64(reader["ContactNo"]),
-    BirthdayProp = reader["Birthday"].ToString(),
-    GenderProp = reader["Gender"].ToString()
+                        FirstNameProp = reader["FirstName"].ToString(),
+                        LastNameProp = reader["LastName"].ToString(),
+                        MiddleNameProp = reader["MiddleName"].ToString(),
+                        ProgramProp = reader["Program"].ToString(),
+                        AgeProp = Convert.ToInt64(reader["Age"]),
+                        ContactNoProp = Convert.ToInt64(reader["ContactNo"]),
+                        BirthdayProp = reader["Birthday"].ToString(),
+                        GenderProp = reader["Gender"].ToString()
                     });
                 }
             }
